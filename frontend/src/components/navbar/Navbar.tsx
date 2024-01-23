@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate, Outlet } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = ({setIsAuth, isAuth}) => {
-  const navigate = useNavigate();
-  const [user, setUser] = useState("");
-  const [error, setError] = useState("");
+interface NavbarProps {
+  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
+  isAuth: boolean;
+}
 
-  const handleLogOut = async (e) => {
+const Navbar: React.FC<NavbarProps> = ({ setIsAuth, isAuth }) => {
+  const navigate = useNavigate();
+  const [error, setError] = useState<string>("");
+  console.log(error);
+  const handleLogOut = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:3000/api/logout", {
@@ -30,10 +34,9 @@ const Navbar = ({setIsAuth, isAuth}) => {
   useEffect(() => {
     void fetch("http://localhost:3000/api/check", { credentials: "include" })
       .then((res) => res.json())
-      .then((data) => isAuth(data));
-  }, []);
+      .then((data) => setIsAuth(data));
+  }, [setIsAuth]);
 
- 
   return (
     <>
       <nav className="navbar">

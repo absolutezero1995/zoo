@@ -5,12 +5,15 @@ import App from './App';
 import './index.css';
 
 const root = document.getElementById('root');
-const rootElement = createRoot(root);
 
-rootElement.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>
-);
+if (root !== null) {
+  const rootElement = createRoot(root);
+
+  rootElement.render(
+    <React.StrictMode>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </React.StrictMode>
+  );
+}

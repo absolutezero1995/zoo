@@ -16,8 +16,7 @@ type Question = {
 
 const Table = () => {
     const [state, setState] = useState([]);
-    const [selectedQuestion, setSelectedQuestion] = useState(null);
-
+    const [selectedQuestion, setSelectedQuestion] = useState<Question | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -62,4 +61,4 @@ const Table = () => {
     );
 }
 
-export default Table
+export default Table;

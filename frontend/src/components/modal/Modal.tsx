@@ -1,8 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './Modal.css';
 
-const Modal = ({ isOpen, onClose, question }) => {
-    const [timer, setTimer] = useState(30);
+interface ModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    question: {
+        question: string;
+        answer: string;
+    };
+}
+
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, question }) => {
+    const [timer, setTimer] = useState<number>(30);
 
     useEffect(() => {
         if (timer > 0) {
@@ -14,7 +23,6 @@ const Modal = ({ isOpen, onClose, question }) => {
         }
         console.log('TIMER IS DONE')
     }, [timer]);
-
 
     return (
         isOpen && (

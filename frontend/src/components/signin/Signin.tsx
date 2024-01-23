@@ -1,21 +1,25 @@
 import React, { useState } from "react";
 import "./Signin.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Signin = ({setIsAuth}) => {
+interface SigninProps {
+  setIsAuth: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Signin: React.FC<SigninProps> = ({ setIsAuth }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string>("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!formData.email || !formData.password) {
