@@ -21,7 +21,7 @@ const Table = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/questions', {
+                const response = await fetch('/api/questions', {
                     credentials: "include",
                     method: "GET"
                 });

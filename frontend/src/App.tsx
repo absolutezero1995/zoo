@@ -14,7 +14,7 @@ function App(): JSX.Element {
 
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/check", { credentials: 'include' })
+    fetch("/api/check", { credentials: 'include' })
       .then((data) => data.json())
       .then((data) => {setIsAuth(data)})
       
