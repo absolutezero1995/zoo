@@ -22,8 +22,7 @@ const Table = () => {
         const fetchData = async () => {
             try {
                 const response = await fetch('/api/questions', {
-                    credentials: "include",
-                    method: "GET"
+                    credentials: "include"
                 });
                 const data = await response.json();
                 setState(data);
