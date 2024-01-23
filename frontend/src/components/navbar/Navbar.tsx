@@ -14,7 +14,7 @@ const Navbar: React.FC<NavbarProps> = ({ setIsAuth, isAuth }) => {
   const handleLogOut = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/logout", {
+      const response = await fetch("/logout", {
         credentials: "include",
       });
       if (response.ok) {
@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ setIsAuth, isAuth }) => {
   };
 
   useEffect(() => {
-    void fetch("http://localhost:3000/api/check", { credentials: "include" })
+    void fetch("/check", { credentials: "include" })
       .then((res) => res.json())
       .then((data) => setIsAuth(data));
   }, [setIsAuth]);
