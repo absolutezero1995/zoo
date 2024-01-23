@@ -21,6 +21,7 @@ function App(): JSX.Element {
   }, [])
 
 
+
   return (
     <Routes>
       <Route path="/" element={<Navbar setIsAuth={setIsAuth} isAuth={isAuth} />}>
