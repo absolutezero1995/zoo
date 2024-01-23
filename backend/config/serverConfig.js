@@ -7,7 +7,7 @@ const sessionConfig = require("../config/sessionConfig");
 const cors = require('cors');
 
 const corsOption = {
-  origin: 'http://localhost:5173',
+  origin: 'http://localhost/*',
   credentials: true,
   optionsSuccessStatus: 200
 }
